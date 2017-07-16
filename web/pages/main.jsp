@@ -42,10 +42,10 @@
                 <div class="authorList">
                     <h4>Список авторов</h4>
                     <ul class="nav">
-                        <jsp:useBean id="list" class="ua.kryvko.web.beanlists.AuthorList" scope="request"/>
-                        <c:forEach var="author" items="${list.beanList}">
+                        <jsp:useBean id="genres" class="ua.kryvko.web.dao.GenreDAO" scope="request"/>
+                        <c:forEach var="genre" items="${genres.all}">
                             <li><a href='#'><span>
-                            <c:out value="${author.fio}" />
+                            <c:out value="${genre.name}" />
                             </span></a></li>
                         </c:forEach>
                     </ul>    
