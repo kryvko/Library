@@ -1,0 +1,6 @@
+<%-- footer for main.jsp --%>
+<%@ page pageEncoding="UTF-8" %>
+            </div><%-- close class.contentImg --%>
+        </div><%-- close class.content --%>
+    </body>
+</html>

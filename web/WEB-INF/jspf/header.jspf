@@ -1,0 +1,33 @@
+<%-- header fragment for main.jsp --%>
+
+<%@ page pageEncoding="UTF-8" %>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Main</title>
+        <link href="../css/main.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="/Library">
+                    <div class="ref">
+                        <img src="../images/logo.png" alt="logo" height="70px">
+                        <span>На&nbsp;главную</span>
+                    </div>
+                </a>
+            </div>
+            <div class="search">
+                <form>
+                    <input type="search" name="query" placeholder="Найти...">
+                    <input type="submit" value="Поиск">
+                    <select name="table">
+                        <option value="author">По автору</option>
+                        <option value="book" selected>По названию</option>
+                    </select>
+
+                </form>
+            </div>
+        </header>
+        <div class="content">
+            <div class="contentImg">

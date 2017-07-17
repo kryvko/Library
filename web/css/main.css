@@ -54,7 +54,7 @@ header {
     height: calc(100vh - 95px);
 }
 
-.authorList, .book, .logo {
+.genreList, .book, .logo {
     margin: 10px 0 10px 30px;
     float: left;
 }
@@ -63,7 +63,7 @@ header {
     margin-bottom: 0;
 }
 
-.authorList, .book {
+.genreList, .book {
     border: 3px solid white;
     background: rgba(88, 88, 88, 0.5);
     height: calc(100vh - 121px - 20px);
@@ -73,7 +73,7 @@ header {
     overflow: auto;
 }
 
-.authorList, .logo {
+.genreList, .logo {
     width: 30ex;  
 }
 
@@ -93,7 +93,7 @@ ul.nav a {
     color: #F0FFFF;
 }
 
-ul.nav a:hover, ul.nav a:active, ul.nav a:focus {
+table a:hover, ul.nav a:hover, ul.nav a:active, ul.nav a:focus {
 	background-color: #F0FFFF;
 	color: #2F4F4F;
         border-radius: 3px;
@@ -104,3 +104,36 @@ ul.nav li {
     margin: 5px;
 }
 
+table {
+    color: #F0FFFF;
+    font: 13px sans-serif;
+}
+
+td.info {
+    width: calc(100vw - 150px); 
+    height: 100px;
+}
+
+td.img {
+    width: 150px;
+    height: 130px;
+}
+
+p.link {
+    margin:10px;
+}
+
+p.bookTitle{
+    color: #52ff9f;
+    font-weight: bold; 
+    font-size: large;
+}
+
+table a {
+    text-decoration: none;
+    color: #F0FFFF;
+}
+
+h3 {
+    margin-left: 30px;
+}

@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import ua.kryvko.web.beans.DBBean;
 import ua.kryvko.web.beans.Genre;
+import ua.kryvko.web.names.GenreCols;
 
 /**
  *
@@ -21,8 +22,7 @@ import ua.kryvko.web.beans.Genre;
  */
 public class GenreDAO extends AbstractDAO<Genre>{
     public static final String SELECT_QUERY = "SELECT * FROM genre";
-    public static final String ID = "id";
-    public static final String NAME = "name";
+
 
     @Override
     protected String getSelectQuery() {
@@ -35,8 +35,8 @@ public class GenreDAO extends AbstractDAO<Genre>{
         try {
             while(rs.next()) {
                 Genre genre = new Genre();
-                genre.setId(rs.getLong(ID));
-                genre.setName(rs.getString(NAME));
+                genre.setId(rs.getLong(GenreCols.ID));
+                genre.setName(rs.getString(GenreCols.NAME));
                 genres.add(genre);
             }
         } catch (SQLException ex) {

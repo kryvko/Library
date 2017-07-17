@@ -16,6 +16,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import ua.kryvko.web.beans.DBBean;
+import ua.kryvko.web.names.ResourseNames;
 
 /**
  *
@@ -23,14 +24,21 @@ import ua.kryvko.web.beans.DBBean;
  */
 public abstract class AbstractDAO<T extends DBBean> implements GenericDAO<T>{
     
-    private final static String JNDI = "java:comp/env/jdbc/Library";
-    
     /**
      * @return SQL query to retrieve all records
      * 
      * SELECT * FROM [Table]
      */
     protected abstract String getSelectQuery();
+    
+    /**
+     * @return SQL query to retrieve record by UUID
+     * 
+     * SELECT * FROM [Table] WHERE id = ...
+     */
+    protected String getSelectByIdQuery(Long id) {
+        return getSelectQuery() + " WHERE id = " + id;
+    }
     
     /**
      * Parse Result Set
@@ -58,7 +66,7 @@ public abstract class AbstractDAO<T extends DBBean> implements GenericDAO<T>{
         Connection conn = null;
         try {
             InitialContext ic = new InitialContext();
-            DataSource ds = (DataSource) ic.lookup(JNDI);
+            DataSource ds = (DataSource) ic.lookup(ResourseNames.JNDI);
             conn = ds.getConnection();
         } catch (NamingException ex) { 
             Logger.getLogger(AbstractDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -67,5 +75,22 @@ public abstract class AbstractDAO<T extends DBBean> implements GenericDAO<T>{
         }
         return conn;
     }
+
+    @Override
+    public T getDataById(Long id) {
+        T data = null;
+        try(Connection conn = getConnection()) {
+            try(Statement st = conn.createStatement()) {
+                try(ResultSet rs = st.executeQuery(getSelectByIdQuery(id))) {
+                    data = parseResultSet(rs).get(0);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AbstractDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return data;
+    }
+    
+    
 
 }

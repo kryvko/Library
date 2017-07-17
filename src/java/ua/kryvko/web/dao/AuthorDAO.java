@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import ua.kryvko.web.beans.Author;
+import ua.kryvko.web.names.AuthorCols;
 
 /**
  *
@@ -20,9 +21,6 @@ import ua.kryvko.web.beans.Author;
 public class AuthorDAO extends AbstractDAO<Author>{
     
     private final static String SELECT_QUERY = "SELECT * FROM author"; 
-    public static final String ID = "id";
-    public static final String FIO = "fio";
-    public static final String BIRTHDAY = "birthday";
 
     @Override
     protected String getSelectQuery() {
@@ -35,9 +33,9 @@ public class AuthorDAO extends AbstractDAO<Author>{
         try {
             while (rs.next()) {
                 Author author = new Author();
-                author.setId(rs.getLong(ID));
-                author.setFio(rs.getString(FIO));
-                author.setBirthday(rs.getDate(BIRTHDAY));
+                author.setId(rs.getLong(AuthorCols.ID));
+                author.setFio(rs.getString(AuthorCols.FIO));
+                author.setBirthday(rs.getDate(AuthorCols.BIRTHDAY));
                 authors.add(author);
             }
         } catch (SQLException ex) {
@@ -45,5 +43,5 @@ public class AuthorDAO extends AbstractDAO<Author>{
         }
         return authors;
     }
-    
+ 
 }
