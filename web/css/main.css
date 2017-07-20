@@ -14,34 +14,64 @@ and open the template in the editor.
 }
 
 body {
+    color: #F0FFFF;
+    background: #2F4F4F;
     font-family: sans-serif;
 }
 
-header {
-    background: #2F4F4F;
-    height: 95px;
-}
-
-.logo {
-    border: 3px solid  #2F4F4F;
-}
-
-.ref {
-    position: relative;
-    width: 175px;
-    margin: auto;
-}
-
-.ref span {
-    position: absolute;
-    top: 30px;
-    margin-left: 10px;
-    color: #F0FFFF;
-    font: 20px/16px sans-serif;
+.genreList, .book, .logo, .login {
+    margin: 10px 0 10px 30px;
+    float: left;
 }
 
 .search {
     float: right;
+}
+
+.content {
+    clear: both;
+}
+
+.genreList {
+    width: 250px;  
+}
+
+.book {
+    width: calc(100vw - 30ex - 12px - 90px - 40px);
+}
+
+.genreList, .book {
+    border: 3px solid white;
+    background: rgba(88, 88, 88, 0.5);
+    height: calc(100vh - 116px - 20px);
+    border-radius: 5px;
+    padding: 10px;
+    overflow: auto;
+}
+
+.logo, .login {
+    margin-bottom: 0;
+}
+
+.login p {
+    text-align: right;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+a:hover, a:active, a:focus {
+    background-color: #F0FFFF;
+    color: #2F4F4F;
+}
+
+.logo a {
+    display: block;
+    text-align: center;
 }
 
 .content {
@@ -51,61 +81,32 @@ header {
 
 .contentImg {
     background: url("../images/evo.png") no-repeat center bottom;
-    height: calc(100vh - 95px);
-}
-
-.genreList, .book, .logo {
-    margin: 10px 0 10px 30px;
-    float: left;
-}
-
-.logo {
-    margin-bottom: 0;
-}
-
-.genreList, .book {
-    border: 3px solid white;
-    background: rgba(88, 88, 88, 0.5);
-    height: calc(100vh - 121px - 20px);
-    border-radius: 5px;
-    padding: 10px;
-    color: #F0FFFF;
-    overflow: auto;
-}
-
-.genreList, .logo {
-    width: 30ex;  
-}
-
-.book {
-    width: calc(100vw - 30ex - 12px - 90px - 40px);
-}
-
-h4 {
-    text-align: center;
+    height: calc(100vh - 80px);
 }
 
 ul.nav {
     list-style: none;
-}
-ul.nav a {
-    text-decoration: none;
-    color: #F0FFFF;
-}
-
-table a:hover, ul.nav a:hover, ul.nav a:active, ul.nav a:focus {
-	background-color: #F0FFFF;
-	color: #2F4F4F;
-        border-radius: 3px;
-        padding: 5px;
 }
 
 ul.nav li {
     margin: 5px;
 }
 
+.letters, .genreTitle {
+    text-align: center;
+    font-weight: bold;
+}
+
+a.selected {
+    color: #52ff9f;
+    font-weight: bold;
+}
+
+a.selected:hover {
+    color: #2F4F4F;
+}
+
 table {
-    color: #F0FFFF;
     font: 13px sans-serif;
 }
 
@@ -119,21 +120,12 @@ td.img {
     height: 130px;
 }
 
-p.link {
-    margin:10px;
-}
-
-p.bookTitle{
+.bookTitle{
     color: #52ff9f;
     font-weight: bold; 
     font-size: large;
 }
 
-table a {
-    text-decoration: none;
-    color: #F0FFFF;
-}
-
-h3 {
-    margin-left: 30px;
+.link {
+    margin:10px;
 }

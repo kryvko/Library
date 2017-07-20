@@ -19,7 +19,16 @@ import ua.kryvko.web.names.BookCols;
  * @author Artem Kryvko
  */
 public class BookDAO extends AbstractDAO<Book>{
-    public static final String SELECT_QUERY = "SELECT * FROM book";
+    public static final String SELECT_QUERY = "SELECT "
+            + BookCols.ID + ", "
+            + BookCols.NAME + ", "
+            + BookCols.PAGE_COUNT + ", "
+            + BookCols.ISBN + ", "
+            + BookCols.GENRE_ID  + ", "
+            + BookCols.AUTHOR_ID + ", "
+            + BookCols.PUBLISH_YEAR + ", "
+            + BookCols.PUBLISHER_ID + ", "
+            + BookCols.IMAGE + " FROM book";
 
 
     @Override
@@ -35,7 +44,6 @@ public class BookDAO extends AbstractDAO<Book>{
                 Book book = new Book();
                 book.setId(rs.getLong(BookCols.ID));
                 book.setName(rs.getString(BookCols.NAME));
-                //book.setContent(rs.getBytes(BookCols.CONTENT));
                 book.setPage_count(rs.getInt(BookCols.PAGE_COUNT));
                 book.setIsbn(rs.getString(BookCols.ISBN));
                 book.setGenre_id(rs.getLong(BookCols.GENRE_ID));

@@ -3,12 +3,39 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <%@ page isELIgnored="false" %>
 
+<jsp:useBean id="genres" class="ua.kryvko.web.dao.GenreDAO" scope="request"/>
+        <c:if test="${not empty param.genreId}">
+            <c:set var="selectedGenre" value="${param.genreId}" scope="session" />
+        </c:if>
+        <c:if test="${not empty param.searchString}">
+            <c:remove var="selectedGenre" scope="session" />
+        </c:if>
+     
+
 <div class="genreList">
-    <h4>Список жанров</h4>
+    <p class="genreTitle">Список жанров</p>
     <ul class="nav">
-        <jsp:useBean id="genres" class="ua.kryvko.web.dao.GenreDAO" scope="request"/>
+        <li>
+            <c:choose>
+                <c:when test="${sessionScope.selectedGenre eq 0}">
+                    <a class="selected" href="books.jsp?genreId=0">
+                </c:when>
+                <c:otherwise>
+                     <a  href="books.jsp?genreId=0">
+                </c:otherwise>
+            </c:choose>
+        <span>Все книги</span></a></li>
         <c:forEach var="genre" items="${genres.all}">
-            <li><a href="books.jsp?genre_id=${genre.id}&name=${genre.name}"><span>
+            <li>
+                <c:choose>
+                    <c:when  test="${sessionScope.selectedGenre eq genre.id}">
+                        <a class="selected" href="books.jsp?genreId=${genre.id}&name=${genre.name}">
+                    </c:when>
+                    <c:otherwise>
+                        <a href="books.jsp?genreId=${genre.id}&name=${genre.name}">                      
+                    </c:otherwise>
+                </c:choose>
+                <span>
             <c:out value="${genre.name}" />
             </span></a></li>
         </c:forEach>

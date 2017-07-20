@@ -14,7 +14,7 @@ import java.sql.Date;
 public class Book extends DBBean {
     
     private String name;
-    //private byte[] content; //so large size
+    private byte[] content;
     private int page_count;
     private String isbn;
     private long genre_id;
@@ -34,13 +34,13 @@ public class Book extends DBBean {
         this.name = name;
     }
 
-//    public byte[] getContent() {
-//        return content;
-//    }
-//
-//    public void setContent(byte[] content) {
-//        this.content = content;
-//    }
+    public byte[] getContent() {
+        return content;
+    }
+
+    public void setContent(byte[] content) {
+        this.content = content;
+    }
 
     public int getPage_count() {
         return page_count;

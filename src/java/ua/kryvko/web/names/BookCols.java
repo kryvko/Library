@@ -10,14 +10,14 @@ package ua.kryvko.web.names;
  * @author Artem Kryvko
  */
 public interface BookCols {
-    String ID = "id";
-    String NAME = "name";
-    String CONTENT = "content";
-    String PAGE_COUNT = "page_count";
-    String ISBN = "isbn";
-    String GENRE_ID = "genre_id";
-    String AUTHOR_ID = "author_id";
-    String PUBLISH_YEAR = "publish_year";
-    String PUBLISHER_ID = "publisher_id";
-    String IMAGE = "image";
+    String ID = "book.id";
+    String NAME = "book.name";
+    String CONTENT = "book.content";
+    String PAGE_COUNT = "book.page_count";
+    String ISBN = "book.isbn";
+    String GENRE_ID = "book.genre_id";
+    String AUTHOR_ID = "book.author_id";
+    String PUBLISH_YEAR = "book.publish_year";
+    String PUBLISHER_ID = "book.publisher_id";
+    String IMAGE = "book.image";
 }

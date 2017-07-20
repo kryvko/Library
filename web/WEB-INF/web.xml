@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>CheckSessionFilter</filter-name>
+        <filter-class>ua.kryvko.web.filters.CheckSessionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CheckSessionFilter</filter-name>
+        <url-pattern>/pages/*</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>BookImg</servlet-name>
         <servlet-class>ua.kryvko.web.servlets.BookImg</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CloseSession</servlet-name>
+        <servlet-class>ua.kryvko.web.servlets.CloseSession</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BookImg</servlet-name>
         <url-pattern>/BookImg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CloseSession</servlet-name>
+        <url-pattern>/CloseSession</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

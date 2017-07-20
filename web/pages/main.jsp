@@ -10,7 +10,7 @@
 <%@include file="../WEB-INF/jspf/left_menu.jspf" %>
 
 <div class="book">
-    Content
+    Выберите раздел или используйте поиск книги
 </div>
 
 <%-- footer.jspf like coda --%>

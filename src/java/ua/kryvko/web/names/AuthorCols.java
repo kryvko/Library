@@ -10,7 +10,7 @@ package ua.kryvko.web.names;
  * @author Artem Kryvko
  */
 public interface AuthorCols {
-    String ID = "id";
-    String FIO = "fio";
-    String BIRTHDAY = "birthday";
+    String ID = "author.id";
+    String FIO = "author.fio";
+    String BIRTHDAY = "author.birthday";
 }

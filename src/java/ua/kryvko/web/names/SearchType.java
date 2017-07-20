@@ -9,7 +9,7 @@ package ua.kryvko.web.names;
  *
  * @author Artem Kryvko
  */
-public interface GenreCols {
-    String ID = "genre.id";
-    String NAME = "genre.name";
+public enum SearchType {
+    AUTHOR,
+    TITLE;
 }

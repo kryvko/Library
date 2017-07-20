@@ -15,4 +15,5 @@ import ua.kryvko.web.beans.DBBean;
 public interface GenericDAO<T extends DBBean> {
     List<T> getAll();
     T getDataById(Long id);
+    List<T> getDataBySQL(String sqlQuery);
 }
